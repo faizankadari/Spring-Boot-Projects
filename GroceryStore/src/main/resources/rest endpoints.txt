@@ -1,0 +1,81 @@
+POST:- http://localhost:8082/addUser
+Request
+{
+  "username": "admin@gmail.com",
+  "password": "admin1234",
+  "role": "ADMIN"
+}
+
+POST:- http://localhost:8082/addUser
+{
+  "username": "user@gmail.com",
+  "password": "user1234",
+  "role": "USER"
+}
+
+POST:- http://localhost:8082/login
+{
+  "username": "user@gmail.com",
+  "password": "user1234"
+}
+
+
+POST:- http://localhost:8082/admin/api/grocery-items
+Request-1
+{
+    "name": "Apple",
+    "price": 2.49,
+    "quantity": 70
+}
+Request-2
+{
+    "name": "Mango",
+    "price": 3.99,
+    "quantity": 100
+}
+Request-3
+{
+    "name": "Grape",
+    "price": 1.29,
+    "quantity": 70
+}
+GET:- http://localhost:8082/admin/api/grocery-items
+
+PUT:- http://localhost:8082/admin/api/grocery-items/3
+Request
+{
+    "name": "Grapes",
+    "price": 1.39,
+    "quantity": 90
+}
+
+POST:- http://localhost:8082/admin/api/orders
+Request 1
+[
+  {
+    "quantity": 500,
+    "groceryItem": {
+      "id": 1
+    }
+  }
+]
+
+Request 2
+[
+  {
+    "quantity": 5,
+    "groceryItem": {
+      "id": 1
+    }
+  },
+  {
+    "quantity": 3,
+    "groceryItem": {
+      "id": 2
+    }
+  }
+]
+
+Delete:- http://localhost:8082/admin/api/grocery-items/3
+
+
